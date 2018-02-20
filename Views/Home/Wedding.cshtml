@@ -1,0 +1,22 @@
+@model wedding_planner.Models.WeddingViews
+<h1>Plan Your Wedding</h1>
+<div class="right">
+    <h4><a href="dashboard">Dashboard</a> || <a href="logout">Log Out</a></h4>
+</div>
+<br>
+<form action="addwedding" method="POST">
+    <span class="erori" asp-validation-for="WedderOne"></span><br>
+    <label asp-for="WedderOne">Wedder One:</label>
+    <input asp-for="WedderOne" type="text"><br>
+    <span class="erori" asp-validation-for="WedderTwo"></span><br>
+    <label asp-for="WedderTwo">Wedder Two:</label>
+    <input asp-for="WedderTwo" type="text"><br>
+    <span class="erori" asp-validation-for="Date"></span><br>
+    <label asp-for="Date">Date:</label>
+    <input asp-for="Date"><br>
+    <span class="erori" asp-validation-for="Address"></span><br>
+    <label asp-for="Address">Address:</label>
+    <input asp-for="Address" type="text"><br>
+    <input type="submit" value="Add Wedding">
+
+</form>

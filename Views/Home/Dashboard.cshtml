@@ -1,0 +1,46 @@
+<h1>
+    Welcome To Wedding Planner</h1>
+
+<div class="right">
+    <h4><a href="/logout">Log Out</a></h4>
+</div>
+<div class="right">
+    <form>
+        <button type="submit" formaction="wedding">Add Wedding</button>
+    </form>
+</div>
+
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>Wedding:</th>
+            <th>Date:</th>
+            <th>Guests</th>
+            <th>Actions:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ foreach(var wedding in ViewBag.weddings){ var flag=false;
+        <tr>
+            <td><a href="thiswedding/@wedding.WeddingId">@wedding.WedderOne & @wedding.WedderTwo</a></td>
+            <td>@wedding.Date.ToString("MM/dd/yyyy")</td>
+            <td>@wedding.Users.Count</td>
+            @foreach(var join in @wedding.Users){ @if(@join.UserId==@ViewBag.session && @join.WeddingId==@wedding.WeddingId){ flag=true; }} @if(@wedding.UserId==@ViewBag.session){
+            <td><a href="delete/@wedding.WeddingId">Delete</a></td>
+            }else if(flag==false){
+            <td><a href="RSVP/@wedding.WeddingId">RSVP</a></td>
+            }else if(flag==true){
+            <td><a href="unRSVP/@wedding.WeddingId">unRSVP</a></td>
+            }
+        </tr>
+        }}
+    </tbody>
+</table>
+
+<style>
+    .right {
+        width: 100%;
+        text-align: right;
+    }
+</style>

@@ -1,0 +1,14 @@
+/*Write all of your CSS here*/
+
+.right {
+    width: 100%;
+    text-align: right;
+}
+
+input {
+    width: 300px;
+}
+
+.erori {
+    color: red;
+}
